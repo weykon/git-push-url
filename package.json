@@ -7,7 +7,20 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "keywords": [
+    "git",
+    "git push",
+    "remote",
+    "git remote"
+  ],
+  "author": "weykon <635883092@qq.com>",
+  "license": "ISC",
+  "homepage": "https://github.com/weykon/add-git-push-url.git",
+  "bugs": {
+    "url": "https://github.com/weykon/add-git-push-url/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/weykon/add-git-push-url.git"
+  }
 }

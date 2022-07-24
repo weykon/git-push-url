@@ -1,2 +1,2 @@
-declare var  push_address_add : (address: string) => void;
-export default push_address_add
+declare var add_git_push_url : (address: string) => void;
+export default add_git_push_url
