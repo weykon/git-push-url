@@ -2,8 +2,7 @@
 - example
     - javascript example
     ```javascript
-    var add_git_push_url = require('add-git-push-url')
-    add_git_push_url('https://github.com/your-user/your-repo')
+    require('add-git-push-url').default('https://github.com/your-user/your-repo')
     ```
     - typescript example
     ```typescript
