@@ -14,3 +14,5 @@
 ## Todo
 
 - [ ] add flush
+- [ ] auto clear itself (child_process: npm uninstall add-git-push-url)
+    > check file "package-lock.json" and "?yarn-lock.json" in the project folder to decide which command to execute
