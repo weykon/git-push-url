@@ -24,7 +24,7 @@
     "url": "https://github.com/weykon/git-push-url.git"
   },
   "bin": {
-    "add-git-push-url": "./bin/git-push-url"
+    "git-push-url": "./bin/git-push-url"
   },
   "dependencies": {
     "commander": "^9.4.0"
