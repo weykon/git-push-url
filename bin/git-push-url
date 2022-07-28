@@ -1,0 +1,88 @@
+#! /usr/bin/env node
+const project_path = process.cwd()
+const project_path_git_path = `${project_path}/.git`
+const program = require('commander');
+const fs = require("fs");
+const red_bg = '\x1B[41m';
+const green_bg = '\x1B[42m';
+const blue_bg = '\x1B[44m';
+const yellow_bg = '\x1B[43m';
+const reset_bg = '\x1B[0m';
+
+const log =
+    (...any) =>
+        console.log(`${green_bg}[ - add-git-push-url - ]: ${any}${reset_bg}`);
+let config;
+let result;
+if (
+    fs.existsSync(`${project_path_git_path}`)
+    && fs.existsSync(`${project_path_git_path}/config`)
+) {
+    config = fs.readFileSync(`${project_path_git_path}/config`);
+    config = config.toString()
+    result = config.match(/url.*/g)
+    log(`\n./.git/config has remote and the url:\n${blue_bg}${result.join('\n')}`)
+    if (!result) {
+        log(`${red_bg}Sorry, there is no remote setting`);
+        return;
+    }
+} else {
+    log(`${red_bg}Sorry, can not find .git folder or ./.git/config file`)
+}
+
+// add
+program
+    .command('add')
+    .argument('<url>')
+    .action(function (url) {
+        if (!url) return
+        log(`Add Url: ${url}`)
+        let newConfig = config.replace(result[result.length - 1], `${result[result.length - 1]}\n\turl = ${url}`)
+        writeNewConfig(newConfig);
+    });
+
+// remove
+program
+    .command('remove')
+    .argument('<url>')
+    .action((url) => {
+        const removeUrl = result.find(e => new RegExp(`${url}$`).exec(e));
+        if (!removeUrl) {
+            log(`${red_bg}Sorry, there is no "${url}" address`)
+            return
+        }
+        let newConfig = config.replace(new RegExp(`\t${removeUrl}\n`, 'g'), '')
+        writeNewConfig(newConfig);
+    });
+
+function writeNewConfig(newConfig) {
+    log(`\nthe update config addresses:\n${newConfig.match(/(?<=url = ).*/g).map(e => yellow_bg + '\t' + e + green_bg).join(' \n')}`)
+    process.stdout.write('confirm(y/n): ');
+    process.stdin.on('data', (input) => {
+        input = input.toString().trim();
+        if (input === 'y') {
+            fs.writeFile(`${project_path_git_path}/config`,
+                newConfig,
+                (err) => {
+                    if (err) {
+                        log(err);
+                    } else {
+                        log('done !')
+                        process.exit()
+                    }
+                }
+            )
+        } else if (input === 'n') {
+            process.exit()
+        } else {
+            process.exit()
+        }
+    })
+}
+
+program
+    .name('add-git-push-url')
+    .description('CLI to add a push url to the first remote')
+    .version(`${require('../package.json').version}`);
+program
+    .parse(process.argv);

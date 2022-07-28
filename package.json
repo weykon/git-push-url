@@ -1,8 +1,8 @@
 {
   "name": "add-git-push-url",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "",
-  "main": "index.js",
+  "main": "./bin/add-git-push-url",
   "types": "index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -22,5 +22,11 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/weykon/add-git-push-url.git"
+  },
+  "bin": {
+    "add-git-push-url": "./bin/add-git-push-url"
+  },
+  "dependencies": {
+    "commander": "^9.4.0"
   }
 }
