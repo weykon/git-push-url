@@ -1,6 +1,6 @@
 {
   "name": "git-push-url",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "",
   "main": "./bin/git-push-url",
   "types": "index.d.ts",
