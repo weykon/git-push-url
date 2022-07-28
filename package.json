@@ -1,8 +1,8 @@
 {
-  "name": "add-git-push-url",
-  "version": "1.0.2",
+  "name": "git-push-url",
+  "version": "1.0.0",
   "description": "",
-  "main": "./bin/add-git-push-url",
+  "main": "./bin/git-push-url",
   "types": "index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -15,16 +15,16 @@
   ],
   "author": "weykon <635883092@qq.com>",
   "license": "ISC",
-  "homepage": "https://github.com/weykon/add-git-push-url.git",
+  "homepage": "https://github.com/weykon/git-push-url.git",
   "bugs": {
-    "url": "https://github.com/weykon/add-git-push-url/issues"
+    "url": "https://github.com/weykon/git-push-url/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/weykon/add-git-push-url.git"
+    "url": "https://github.com/weykon/git-push-url.git"
   },
   "bin": {
-    "add-git-push-url": "./bin/add-git-push-url"
+    "add-git-push-url": "./bin/git-push-url"
   },
   "dependencies": {
     "commander": "^9.4.0"

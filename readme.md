@@ -1,17 +1,12 @@
 # Usage
-- example
-    - javascript example
-    ```javascript
-    require('add-git-push-url').default('https://github.com/your-user/your-repo')
-    ```
-    - typescript example
-    ```typescript
-    import add_git_push_url from 'add-git-push-url'
-    add_git_push_url('https://github.com/your-user/your-repo')
-    ```
 
-## Todo
+> this CLI change __"./.git/config"__ file content of remote url settings.
 
-- [ ] add flush
-- [ ] auto clear itself (child_process: npm uninstall add-git-push-url)
-    > check file "package-lock.json" and "?yarn-lock.json" in the project folder to decide which command to execute
+```shell
+npm i git-push-url -g
+git-push-url add https://github.com/user/repo.git
+#or
+git-push-url remove https://github.com/user/repo.git
+```
+
+
