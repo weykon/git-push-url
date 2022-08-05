@@ -1,3 +1,4 @@
+![download img](https://img.shields.io/npm/dt/git-push-url)
 # Usage
 
 > this CLI change __"./.git/config"__ file content of remote url settings.
