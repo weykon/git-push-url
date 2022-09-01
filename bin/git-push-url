@@ -24,10 +24,11 @@ if (
     log(`\n./.git/config has remote and the url:\n${blue_bg}${result.join('\n')}`)
     if (!result) {
         log(`${red_bg}Sorry, there is no remote setting`);
-        return;
+        process.exit(0);
     }
 } else {
     log(`${red_bg}Sorry, can not find .git folder or ./.git/config file`)
+    process.exit(0);
 }
 
 // add
@@ -81,7 +82,7 @@ function writeNewConfig(newConfig) {
 }
 
 program
-    .name('add-git-push-url')
+    .name('git-push-url')
     .description('CLI to add a push url to the first remote')
     .version(`${require('../package.json').version}`);
 program
